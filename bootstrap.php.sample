@@ -1,0 +1,29 @@
+<?php
+// Autoload
+
+$autoloader = require __DIR__ . '/vendor/autoload.php';
+
+Doctrine\Common\Annotations\AnnotationRegistry::registerLoader([$autoloader, 'loadClass']);
+
+date_default_timezone_set("America/Sao_Paulo");
+
+// App Configs
+define('PROJECT_DIR', __DIR__);
+define('APP_DEBUG', true);
+define('HOME', '');
+define('TEMPLATES', PROJECT_DIR . '/templates');
+
+// Database confg
+define('DB_NAME', '');
+define('DB_HOST', '');
+define('DB_USER', '');
+define('DB_PASSOWORD', '');
+define('DB_CHARSET',  '');
+
+//PagSeguro
+define('PAGSEGURO_EMAIL','');
+define('PAGSEGURO_TOKEN','');
+define('PAGSEGURO_SANDBOX', true);
+
+ini_set('display_erros', APP_DEBUG);
+error_reporting(E_ALL | E_NOTICE | E_WARNING);

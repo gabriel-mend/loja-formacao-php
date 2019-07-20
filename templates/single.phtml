@@ -1,0 +1,42 @@
+<?php require TEMPLATES . '/includes/header.phtml';?>
+
+<div class="row">
+    <div class="col-12">
+        <?php require TEMPLATES . '/includes/message.phtml';?>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-12">
+        <h2><?=$product->name;?></h2>
+        <hr>
+    </div>
+</div>
+<div class="row">
+    <div class="col-6">
+        <img src="https://placeimg.com/640/280/any" alt="" class="img-fluid">
+    </div>
+    <div class="col-6">
+        <p>
+            <?=$product->content;?>
+        </p>
+        <p>
+            <h4>R$ <?=number_format($product->price, 2, ',', '.');?></h4>
+        </p>
+        <p>
+            <form action="<?=HOME;?>/cart/add" method="post">
+            <div class="form-group col-3">    
+                <label>Quantidade</label>    
+                <input type="number" name="qtd" value="1" class="form-control"> 
+            </div>
+                <input type="hidden" name="name" value="<?=$product->name;?>">
+                <input type="hidden" name="price" value="<?=$product->price;?>">
+                <input type="hidden" name="slug" value="<?=$product->slug;?>">
+
+                <button class="btn btn-lg btn-danger" type="submit">Adicionar no carrinho</button>
+            </form>
+        </p>
+    </div>
+</div>
+<?php require TEMPLATES . '/includes/footer.phtml';?>
+
